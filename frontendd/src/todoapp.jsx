@@ -57,52 +57,53 @@ const TaskApp = () => {
   };
 
   return (
-    <div style={{ padding: "20px", maxWidth: "600px", margin: "auto" }}>
-      <h2>Task Management</h2>
+  <div className="task-container">
+    <h2>Task Management</h2>
 
-      <input
-        name="name"
-        placeholder="Task Name"
-        value={form.name}
-        onChange={handleChange}
-        style={{ width: "100%", marginBottom: 10 }}
-      />
-      <input
-        name="description"
-        placeholder="Task Description"
-        value={form.description}
-        onChange={handleChange}
-        style={{ width: "100%", marginBottom: 10 }}
-      />
+    <input
+      name="name"
+      placeholder="Task Name"
+      value={form.name}
+      onChange={handleChange}
+      className="task-input"
+    />
+    <input
+      name="description"
+      placeholder="Task Description"
+      value={form.description}
+      onChange={handleChange}
+      className="task-input"
+    />
 
-      <button onClick={editId ? updateTask : addTask}>
-        {editId ? "Update Task" : "Add Task"}
-      </button>
+    <button onClick={editId ? updateTask : addTask} className="task-button">
+      {editId ? "Update Task" : "Add Task"}
+    </button>
 
-      <ul style={{ listStyle: 'none', padding: 0 }}>
-        {tasks.map((task) => (
-          <li key={task.id} style={{ marginTop: 15 }}>
-            <strong>{task.name}</strong>: {task.description}
-            <button
-              onClick={() => {
-                setEditId(task.id);
-                setForm({ name: task.name, description: task.description });
-              }}
-              style={{ marginLeft: 10 }}
-            >
-              Edit
-            </button>
-            <button
-              onClick={() => deleteTask(task.id)}
-              style={{ marginLeft: 5 }}
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+    <ul className="task-list">
+      {tasks.map((task) => (
+        <li key={task.id} className="task-item">
+          <strong>{task.name}</strong>: {task.description}
+          <button
+            onClick={() => {
+              setEditId(task.id);
+              setForm({ name: task.name, description: task.description });
+            }}
+            className="edit-button"
+          >
+            Edit
+          </button>
+          <button
+            onClick={() => deleteTask(task.id)}
+            className="delete-button"
+          >
+            Delete
+          </button>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
 };
 
 export default TaskApp;
