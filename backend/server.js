@@ -43,6 +43,6 @@ app.put('/tasks/:id', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Check the backend at http://localhost:${PORT}`);
+  console.log(`Check backend at http://localhost:${PORT}`);
 });
 
