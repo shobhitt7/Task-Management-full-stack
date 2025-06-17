@@ -3,7 +3,7 @@ import express from 'express';
 import cors from 'cors';
 
 const app = express();
-const PORT = Process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -16,7 +16,7 @@ app.get('/tasks', (req, res) => {
   res.json(tasks);
 });
 
-/
+
 app.post('/tasks', (req, res) => {
   const newTask = { id: id++, ...req.body };
   tasks.push(newTask);
