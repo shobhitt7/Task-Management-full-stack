@@ -57,52 +57,54 @@ const TaskApp = () => {
   };
 
   return (
-  <div className="task-container">
-    <h2>Task Management</h2>
+    <div className="task-container">
+      <h2>Task Management</h2>
 
-    <input
-      name="name"
-      placeholder="Task Name"
-      value={form.name}
-      onChange={handleChange}
-      className="task-input"
-    />
-    <input
-      name="description"
-      placeholder="Task Description"
-      value={form.description}
-      onChange={handleChange}
-      className="task-input"
-    />
+      <input
+        name="name"
+        placeholder="Task Name"
+        value={form.name}
+        onChange={handleChange}
+        className="task-input"
+      />
+      <textarea
+        name="description"
+        placeholder="Task Description"
+        value={form.description}
+        onChange={handleChange}
+        className="task-input"
+        rows={4}
+      />
 
-    <button onClick={editId ? updateTask : addTask} className="task-button">
-      {editId ? "Update Task" : "Add Task"}
-    </button>
 
-    <ul className="task-list">
-      {tasks.map((task) => (
-        <li key={task.id} className="task-item">
-          <strong>{task.name}</strong>: {task.description}
-          <button
-            onClick={() => {
-              setEditId(task.id);
-              setForm({ name: task.name, description: task.description });
-            }}
-            className="edit-button"
-          >
-            Edit
-          </button>
-          <button
-            onClick={() => deleteTask(task.id)}
-            className="delete-button"
-          >
-            Delete
-          </button>
-        </li>
-      ))}
-    </ul>
-  </div>
-);
+      <button onClick={editId ? updateTask : addTask} className="task-button">
+        {editId ? "Update Task" : "Add Task"}
+      </button>
+
+      <ul className="task-list">
+        {tasks.map((task) => (
+          <li key={task.id} className="task-item">
+            <strong>{task.name}</strong>: {task.description}
+            <button
+              onClick={() => {
+                setEditId(task.id);
+                setForm({ name: task.name, description: task.description });
+              }}
+              className="edit-button"
+            >
+              Edit
+            </button>
+            <button
+              onClick={() => deleteTask(task.id)}
+              className="delete-button"
+            >
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 
 };
 
