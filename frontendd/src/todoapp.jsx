@@ -6,7 +6,7 @@ const TaskApp = () => {
   const [form, setForm] = useState({ name: '', description: '' });
   const [editId, setEditId] = useState(null);
 
-  const API_URL = import.meta.env.VITE_API_URL;
+  const API_URL = `${import.meta.env.VITE_API_URL}/tasks`;
 
   const fetchTasks = async () => {
     try {
